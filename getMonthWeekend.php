@@ -7,7 +7,7 @@
  */
 
 /**
- * »ñÈ¡Ö¸¶¨ÔÂ·İµÄËùÓĞÖÜÄ©µÄÈÕÆÚ
+ * è·å–æŒ‡å®šæœˆä»½çš„æ‰€æœ‰å‘¨æœ«çš„æ—¥æœŸ
  * @param $month:On the first day of each month_
  * @return array
  */
@@ -19,12 +19,12 @@ function getNextMonthWeekend($month){
         $result[2] = $result[1];
         $result[1] = $temp;
     }
-    // Ã¿ÔÂ×îÉÙ4¸öÖÜÄ©
+    // æ¯æœˆæœ€å°‘4ä¸ªå‘¨æœ«
     for($i = 1; $i <= 3; $i++){
         $result[] = date('Y-m-d', strtotime('+' . $i . ' week', strtotime($result[1])));
         $result[] = date('Y-m-d', strtotime('+' . $i . ' week', strtotime($result[2])));
     }
-    // Ã¿ÔÂ×î¶à5¸öÖÜÄ©
+    // æ¯æœˆæœ€å¤š5ä¸ªå‘¨æœ«
     $lastSat = date('Y-m-d', strtotime('+4 week', strtotime($result[1])));
     if ($lastSat < date('Y-m-t', strtotime($month))){
         $result[] = $lastSat;
